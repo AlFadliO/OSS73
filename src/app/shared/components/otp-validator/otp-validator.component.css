@@ -1,0 +1,75 @@
+.wrapper {
+    height         : 100%;
+    display        : flex;
+    text-align     : center;
+    align-items    : center;
+    flex-direction : column;
+    justify-content: center;
+    /*Shared */
+    --normal-height: 25px;
+}
+
+.wrapper p{
+    margin: 0px;
+}
+
+.wrapper.title{
+    margin-bottom: 5px;
+}
+
+.wrapper .otp-header{
+    margin-bottom: 10px;
+}
+
+.wrapper .code-box{
+    width         : var(--dynamicWidth);
+    height        : var(--normal-height);
+    border        : none;
+    padding       : 5px 0px 5px 10px;
+    min-width     : 140px;
+    font-size     : 20px;
+    text-align    : center;
+    margin-top    : 13px;
+    margin-bottom : 10px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    outline-style : double;
+    outline-color : var(--tile-blue);
+    outline-width : 4px;
+}
+
+.wrapper .code-box-error{
+    outline-color: red;
+}
+
+.code-error-label{
+    color           : red;
+    position        : absolute;
+    background-color: white;
+}
+
+.wrapper .confirm-button{
+    color           : white;
+    width           : calc(var(--dynamicWidth) + 14px);
+    height          : var(--normal-height);
+    border          : none;
+    margin          : 10px 0px;
+    min-width       : 140px;
+    font-weight     : 600;
+    background-color: var(--tile-blue);
+}
+
+.wrapper .send-code{
+    color              : var(--tile-blue);
+    cursor             : pointer;
+    min-width          : 140px;
+    font-size          : 15px;
+    margin-top         : 10px;
+    font-weight        : 600;
+    transition-property: font-size;
+    transition-duration: 0.3s;
+}
+
+.wrapper .send-code:hover{
+    font-size: 18px;
+}

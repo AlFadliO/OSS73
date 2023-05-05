@@ -1,0 +1,43 @@
+<div class = 'wrapper'>
+    <div class = "otp-header">
+        <img src   = "assets/btf.svg">
+        <p class = "title">{{title}}</p>
+        <p class = 'welcome-text'>A confirmation code was sent to the following email john.doe@mail.com.<br/>Please enter the code that appears in your email.</p>
+    </div>
+    <div>
+        <label
+            class="code-error-label"
+            *ngIf = "isErrorState">
+             Code invalid.
+        </label>
+        <input 
+            matInput
+            (input)          = "onCodeInput($event)"
+            [ngClass]        = "{'code-box-error' : isErrorState}"
+            [(ngModel)]      = "otp"
+            [attr.maxlength] = "otpSize"
+            spellcheck       = "false"
+            class            = "code-box"
+            type             = "text"
+            style            = "--dynamicWidth : {{dynamicWidth}}px"
+        />
+    </div>
+    <button 
+        class      = "confirm-button"
+        style      = "--dynamicWidth : {{dynamicWidth}}px"
+        (click)    = "validateOTP()"
+        [ngStyle]  = "{'opacity' : isConfirmationAllowed ? 1 : 0.4, 'cursor' : isConfirmationAllowed ? 'pointer' : 'default'}"
+        [disabled] = "!isConfirmationAllowed">
+        Confirm
+    </button>
+    <a
+        class   = 'send-code'
+        style   = "--dynamicWidth : {{dynamicWidth}}px"
+        (click) = "sendOTP()">
+        Send a new code
+    </a>
+</div>
+<app-spinner 
+    *ngIf   = "waiting"
+    [color] = "spinnerColor">
+</app-spinner>
